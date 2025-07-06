@@ -76,3 +76,16 @@ exports.login = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+exports.completeOnboarding = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    await prisma.user.update({
+      where: { id: userId },
+      data: { onboardingCompleted: true },
+    });
+    res.json({ message: "Onboarding complete" });
+  } catch (err) {
+    res.status(500).json({ message: "Failed to complete onboarding" });
+  }
+};
