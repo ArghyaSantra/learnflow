@@ -27,7 +27,11 @@ export default function Admin() {
   useEffect(() => {
     const fetchMetrics = async () => {
       try {
-        const res = await API.get("/admin/metrics");
+        const res = await API.get("/admin/metrics", {
+          headers: {
+            "x-admin-secret": import.meta.env.VITE_ADMIN_SECRET,
+          },
+        });
         setUsers(res.data.users);
         setSummary(res.data.summary);
       } catch (err) {

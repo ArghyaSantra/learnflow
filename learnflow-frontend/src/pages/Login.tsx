@@ -33,7 +33,9 @@ export default function Login() {
         onSubmit={handleLogin}
         className="bg-white p-8 rounded shadow-md w-96"
       >
-        <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center text-zinc-800">
+          Login
+        </h2>
 
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 
@@ -43,7 +45,7 @@ export default function Login() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="w-full mb-4 p-2 border rounded"
+          className="w-full mb-4 p-2 border rounded text-zinc-800"
         />
 
         <input
@@ -52,7 +54,7 @@ export default function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className="w-full mb-4 p-2 border rounded"
+          className="w-full mb-4 p-2 border rounded  text-zinc-800"
         />
 
         <button
